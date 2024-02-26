@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo Spring Boot</title>
+</head>
+<body>
+<div class="cont">
+    <br>
+    Nombre : <span th:text = "${individuo.nombre}">MUESTRA NOMBRE</span>
+
+    <br>
+    Apellido : <span th:text = "${individuo.apellido}">MUESTRA NOMBRE</span>
+
+    <br>
+    Edad : <span th:text = "${individuo.edad}">MUESTRA NOMBRE</span>
+
+    <br>
+    Telefono : <span th:text = "${individuo.telefono}">MUESTRA NOMBRE</span>
+
+    <br>
+    Correo : <span th:text = "${individuo.correo}">MUESTRA NOMBRE</span>
+
+
+    <div th:if="${individuos != null and not #lists.isEmpty(individuos)}">        <!--SI LA LISTA NO ESTA VACIA QUE MUESTRE LA TABLA-->
+            <table border="2">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                </tr>
+                <tr th:each="individuo : ${individuos}">   <!--PARA QUE ITERE EN LA LISTA-->
+                    <td th:text="${individuo.nombre}"></td>
+                    <td th:text="${individuo.apellido}"></td>
+                    <td th:text="${individuo.edad}"></td>
+                    <td th:text="${individuo.correo}"></td>
+                    <td th:text="${individuo.telefono}"></td>
+                </tr>
+
+            </table>
+
+    </div>
+</div>
+</body>
+</html>
