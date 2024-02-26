@@ -1,7 +1,7 @@
 package principal.controladora;
 
-import principal.domain.Individuo;
 import principal.dao.IInviduoDao;
+import principal.domain.Individuo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ public class ControladorRest {
 
     //CREAMOS EL DAO
     @Autowired
-    private IInviduoDao individuoDao;
+    private IInviduoDao individuoRepository;
 
 
     //ESTE ES EL CONTROLADOR MVC LA CUAL NOS LLEVA AL HOLA MUNDO (ACA COMIENZA TODO)
@@ -20,9 +20,7 @@ public class ControladorRest {
     @GetMapping("/")
     public String comienzo(Model model){
 
-        Iterable<Individuo> individuos = individuoDao.findAll();
-
-
+        Iterable<Individuo> individuos = individuoRepository.findAll();
         model.addAttribute("individuos", individuos);
         return "indice";
     }
