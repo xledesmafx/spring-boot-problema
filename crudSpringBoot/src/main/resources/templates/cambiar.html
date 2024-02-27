@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>DATOS DEL NUEVO INDIVIDUO</title>
+</head>
+<body>
+    <h1>DATOS DEL NUEVO INDIVIDUO</h1>
+    <a th:href="@{/}">Devolver</a>
+<br/>
+    <form th:action="@{/salvar}" method="post" th:object="${individuo}">
+        <input type="hidden" name="id" th:field="*{id}"> <!--SE UTILIZA PARA QUE LOS DATOS SE MODIFIQUEN NO QUE SE DUPLIQUE-->
+        <label for="nombre">Nombre: </label>
+        <input id="nombre" type="text" name="nombre" th:field="*{nombre}"/>
+        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">ERROR EN NOMBRE</span> <!--MENSAJE EN CASOD E ERORR-->
+        <br>
+        <label for="apellido">Apellido: </label>
+        <input id="apellido" type="text" name="apellido" th:field="*{apellido}"/>
+        <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">ERROR EN APELLIDO</span><!--MENSAJE EN CASOD E ERORR-->
+        <br>
+        <label for="edad">Edad: </label>
+        <input id="edad" type="text" name="edad" th:field="*{edad}"/>
+        <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}">ERROR EN EDAD</span><!--MENSAJE EN CASOD E ERORR-->
+        <br>
+        <label for="telefono">Telefono: </label>
+        <input id="telefono" type="text" name="telefono" th:field="*{telefono}"/>
+        <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">ERROR EN TELEFONO</span><!--MENSAJE EN CASOD E ERORR-->
+        <br>
+        <label for="correo">Correo: </label>
+        <input id="correo" type="text" name="correo" th:field="*{correo}"/>
+        <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">ERROR EN CORREO</span><!--MENSAJE EN CASOD E ERORR-->
+
+        <button type="submit">Guardar</button>
+    </form>
+
+</body>
+</html>

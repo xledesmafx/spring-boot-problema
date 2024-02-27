@@ -7,7 +7,7 @@
 <body>
 <div class="cont">
 
-    <h1>Aca abajo iria la lista si tiene algo</h1>
+    <a th:href="@{/anexar}">Alta Individuo</a>   <!--NOS LLEVA AL  FORM DE ALTA DE INDIVIDUO-->
     <div th:if="${individuos != null and not #lists.isEmpty(individuos)}">        <!--SI LA LISTA NO ESTA VACIA QUE MUESTRE LA TABLA-->
             <table border="2">
                 <tr>
@@ -16,6 +16,8 @@
                     <th>Edad</th>
                     <th>Correo</th>
                     <th>Telefono</th>
+                    <th>Cambiar</th>
+                    <th>Eliminar</th>
                 </tr>
                 <tr th:each="individuo : ${individuos}">   <!--PARA QUE ITERE EN LA LISTA-->
                     <td th:text="${individuo.nombre}"></td>
@@ -23,6 +25,9 @@
                     <td th:text="${individuo.edad}"></td>
                     <td th:text="${individuo.correo}"></td>
                     <td th:text="${individuo.telefono}"></td>
+                    <td> <a th:href="@{/cambiar/} + ${individuo.id}" th:text="Cambiar"/></td>
+                    <td> <a th:href="@{/borrar/} + ${individuo.id}" th:text="Eliminar"/></td>
+
                 </tr>
 
             </table>
