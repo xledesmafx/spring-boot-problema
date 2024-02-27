@@ -5,7 +5,7 @@ import principal.domain.Individuo;
 import java.util.List;
 
 public interface IndividuoServicio {
-    //ACA VAN LOS METODS QUE UTILIZAREMOS {ARA EL CRUD
+    //ACA VAN LOS METODS QUE UTILIZAREMOS PARA EL CRUD
 
     public List<Individuo> listaIndividuos();
 
